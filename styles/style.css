@@ -73,7 +73,7 @@ ol {
   justify-content: space-between;
   align-items: flex-end;
   gap: 30px;
-  min-width: 1200px; /* проверить необходимость */
+  inline-size: 1200px; /* проверить необходимость */
   margin: auto;
   padding: 0 30px;
 }
@@ -127,6 +127,7 @@ ol {
 }
 
 .search-form__textfield {
+  appearance: none;
   border: none;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
@@ -142,6 +143,15 @@ ol {
 .search-form__textfield::placeholder {
   opacity: 0.7;
   color: #fff;
+}
+
+.search-form__textfield:focus {
+  outline: none; /* проверить */
+}
+
+.search-form__textfield:focus-visible {
+  outline: 1px solid #fff; /* проверить */
+  outline-offset: 1px; /* проверить */
 }
 
 .search-form__textfield:active {
@@ -160,14 +170,18 @@ ol {
 
 .search-form__pseudo-checkbox {
   display: flex;
-  width: 19px;
-  height: 19px;
+  justify-content: center;
+  align-items: center;
+  inline-size: 19px;
+  block-size: 19px;
   border: 1px solid #fff;
-  background: #000;
 }
 
-.search-form__checkbox[type="checkbox"]:checked + span {
-  background: #fff;
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  content: '';
+  min-inline-size: 15px;
+  min-block-size: 15px;
+  background-color: #fff;
 }
 
 .search-form__submit-button {
@@ -176,6 +190,7 @@ ol {
 }
 
 .content__details {
+  inline-size: 399px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -199,7 +214,7 @@ ol {
   display: flex;
   flex-direction: column;
   row-gap: 30px;
-  max-height: 298px;
+  block-size: 298px;
   overflow: auto;
 }
 
