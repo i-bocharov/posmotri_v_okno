@@ -50,7 +50,7 @@ ol {
 }
 
 .button {
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   padding: 6px 0;
   color: #fff;
   font-family: 'Fira Sans Condensed', Arial, Helvetica, sans-serif;
@@ -61,9 +61,9 @@ ol {
 }
 
 .button:hover {
-  cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 2px;
+  cursor: pointer;
 }
 
 .button:active {
@@ -76,7 +76,7 @@ ol {
 }
 
 .button:not(:active):focus-visible {
-  outline: 1px solid #fff;
+  outline: 1px solid currentColor;
   outline-offset: 1px;
 }
 
@@ -87,11 +87,7 @@ ol {
   gap: 30px;
   margin: auto;
   padding: 0 30px;
-  inline-size: 1200px; /* проверить необходимость */
-}
-
-.result {
-
+  inline-size: 1200px;
 }
 
 .result__video-container {
@@ -103,6 +99,7 @@ ol {
 
 .result__video {
   object-fit: cover;
+  object-position: center;
   inline-size: 711px;
   block-size: 386px;
 }
@@ -140,7 +137,7 @@ ol {
 
 .search-form__textfield {
   border: 1px solid;
-  border-color: #fff transparent;
+  border-color: currentColor transparent;
   padding-left: 0;
   color: #fff;
   font-family: 'Fira Sans Condensed', Arial, Helvetica, sans-serif;
@@ -157,7 +154,7 @@ ol {
 }
 
 .search-form__textfield:active {
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   border-radius: 0;
 }
 
@@ -166,7 +163,7 @@ ol {
 }
 
 .search-form__textfield:not(:active):focus-visible {
-  outline: 1px solid #fff;
+  outline: 1px solid currentColor;
   outline-offset: 1px;
 }
 
@@ -186,33 +183,29 @@ ol {
 }
 
 .search-form__checkbox-list > .search-form__label:not(:active):focus-visible  {
-  outline: 1px solid #fff;
+  outline: 1px solid currentColor;
   outline-offset: 1px;
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   content: '';
-  background-color: #fff;
+  background-color: currentColor;
   min-inline-size: 15px;
   min-block-size: 15px;
 }
 
 .search-form__checkbox-list > .search-form__label:active > .search-form__pseudo-checkbox::after {
   content: '';
-  background-color: #fff;
+  background-color: currentColor;
   min-inline-size: 15px;
   min-block-size: 15px;
-}
-
-.search-form__checkbox {
-
 }
 
 .search-form__pseudo-checkbox {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   inline-size: 19px;
   block-size: 19px;
 }
@@ -246,7 +239,6 @@ ol {
   position: relative;
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
   overflow: auto;
   block-size: 298px;
 }
@@ -264,25 +256,30 @@ ol {
   cursor: pointer;
 }
 
-.preloader-template {
-
-}
-
-.cards-list-item-template {
-
-}
-
-.content__list-item {
-
+.content__list-item:not(:last-of-type) {
+  margin-bottom: 30px;
 }
 
 .content__card-link {
-  margin: 3px;
   display: block;
   text-decoration: none;
 }
 
+.content__card-link:hover {
+  text-decoration: underline #fff;
+}
+
+.content__card-link:active {
+  text-decoration: none;
+  background: #545050;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
 .content__card-link:focus-visible {
+  margin: 3px;
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
@@ -296,18 +293,10 @@ ol {
   align-items: flex-start;
 }
 
-.content__video-card:hover {
-  text-decoration: underline #fff;
-}
-
-.content__video-card:active {
-  text-decoration: none;
-  background: #545050;
-}
-
 .content__video-card-description-container {
   inline-size: 200px;
-  block-size: 107px;
+  min-block-size: 107px; /* изменил */
+  /* block-size: 107px; */ /*у меня не было переполнения, в строчках 314, 323-326 это было предусмотрено */
 }
 
 .content__video-card-title {
@@ -322,7 +311,7 @@ ol {
 }
 
 .content__video-card-description {
-  display: -webkit-box;
+/*  display: -webkit-box; */
   overflow: hidden;
   overflow-wrap: break-word;
   color: #fff;
@@ -330,21 +319,19 @@ ol {
   font-size: 18px;
   line-height: 0.9em;
   inline-size: 200px;
-  block-size: 65px;
-  line-clamp: 4;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
+  min-block-size: 65px; /* изменил */
+/*  block-size: 65px; */
+/*  line-clamp: 4; */
+/*  -webkit-line-clamp: 4; */
+/*  -webkit-box-orient: vertical; */
 }
 
 .content__video-card-thumbnail {
   align-self: center;
   object-fit: cover;
+  object-position: center;
   inline-size: 194px;
   block-size: 103px;
-}
-
-.more-button-template {
-
 }
 
 .more-button {
@@ -352,10 +339,6 @@ ol {
 }
 
 .more-button:not(:active):focus-visible {
-  inline-size: calc(100% - 4px);
   margin: 0 2px 2px;
-}
-
-.error-template {
-
+  inline-size: calc(100% - 4px);
 }
