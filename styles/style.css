@@ -162,7 +162,7 @@ ol {
   outline: none;
 }
 
-.search-form__textfield:not(:active):focus-visible {
+.search-form__label:has(:focus-visible:not(:active)) {
   outline: 1px solid currentColor;
   outline-offset: 1px;
 }
@@ -295,8 +295,7 @@ ol {
 
 .content__video-card-description-container {
   inline-size: 200px;
-  min-block-size: 107px; /* изменил */
-  /* block-size: 107px; */ /*у меня не было переполнения, в строчках 314, 323-326 это было предусмотрено */
+  min-block-size: 107px;
 }
 
 .content__video-card-title {
@@ -311,7 +310,6 @@ ol {
 }
 
 .content__video-card-description {
-/*  display: -webkit-box; */
   overflow: hidden;
   overflow-wrap: break-word;
   color: #fff;
@@ -319,11 +317,7 @@ ol {
   font-size: 18px;
   line-height: 0.9em;
   inline-size: 200px;
-  min-block-size: 65px; /* изменил */
-/*  block-size: 65px; */
-/*  line-clamp: 4; */
-/*  -webkit-line-clamp: 4; */
-/*  -webkit-box-orient: vertical; */
+  block-size: 100%;
 }
 
 .content__video-card-thumbnail {
